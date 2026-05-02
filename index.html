@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>🌈 CHROMA VAULT • IRIS VERIFICATION 🌈</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #000000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* 🌈 RAINBOW AURORA BACKGROUND - Ultra colorful */
+.aurora-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(125deg, 
+    #ff0066 0%, 
+    #ff6600 15%,
+    #ffcc00 30%,
+    #00ff88 45%,
+    #00ccff 60%,
+    #8800ff 75%,
+    #ff00cc 90%,
+    #ff0066 100%);
+  background-size: 400% 400%;
+  animation: auroraWave 12s ease infinite;
+  opacity: 0.25;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+@keyframes auroraWave {
+  0% { background-position: 0% 50%; opacity: 0.3; transform: scale(1);}
+  50% { background-position: 100% 50%; opacity: 0.5; transform: scale(1.05);}
+  100% { background-position: 0% 50%; opacity: 0.3; transform: scale(1);}
+}
+
+/* floating colorful bubbles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,100,100,0.3));
+  filter: blur(5px);
+  animation: floatBubble 8s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.4;}
+  100% { transform: translateY(-120px) translateX(40px) scale(1.3); opacity: 0.8;}
+}
+
+/* MAIN CARD - HOLOGLASS WITH RAINBOW BORDER */
+.prism-card {
+  width: 500px;
+  max-width: 92%;
+  background: rgba(10, 5, 30, 0.55);
+  backdrop-filter: blur(20px) saturate(200%);
+  border-radius: 64px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1) inset;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  z-index: 30;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* animated rainbow border */
+.prism-card::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(90deg, 
+    #ff0080, #ff8c00, #ffff00, #00ff80, #00d4ff, #8a2be2, #ff0080);
+  background-size: 300% 300%;
+  border-radius: 67px;
+  z-index: -1;
+  animation: borderMagic 4s linear infinite;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.prism-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+  border-radius: 64px;
+  pointer-events: none;
+}
+
+@keyframes borderMagic {
+  0% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+  100% { background-position: 0% 50%;}
+}
+
+/* TITLE - prism split */
+.rainbow-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, 
+    #ff4d4d, #ff9d00, #ffee00, #00ff88, #00ddff, #b266ff, #ff66cc);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: titleFlow 6s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 0.4rem;
+}
+
+@keyframes titleFlow {
+  0% { background-position: 0% 50%;}
+  100% { background-position: 200% 50%;}
+}
+
+.title-emojis {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px gold);
+  animation: bounceEmoji 2s ease infinite;
+}
+
+@keyframes bounceEmoji {
+  0%,100%{ transform: translateY(0px);}
+  50%{ transform: translateY(-6px);}
+}
+
+.sub-rainbow {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.15);
+  display: inline-flex;
+  padding: 0.3rem 1.2rem;
+  border-radius: 40px;
+  margin-bottom: 1.8rem;
+  color: #ffeaa7;
+  border: 1px solid rgba(255,200,100,0.6);
+  gap: 6px;
+  backdrop-filter: blur(4px);
+}
+
+/* 🌟 COLORFUL LOADER - FRACTAL RINGS */
+.chroma-loader {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-layer {
+  position: absolute;
+  border-radius: 50%;
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent;
+  animation: var(--anim, spin 1.4s linear infinite);
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.ring-1 {
+  width: 100%;
+  height: 100%;
+  border-top-color: #ff3366;
+  border-right-color: #ff9933;
+  --anim: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+.ring-2 {
+  width: 78%;
+  height: 78%;
+  border-bottom-color: #33ff66;
+  border-left-color: #33ccff;
+  --anim: spin-rev 1.6s linear infinite;
+}
+.ring-3 {
+  width: 52%;
+  height: 52%;
+  border-top-color: #ff33ff;
+  border-right-color: #ffee33;
+  --anim: spin 1s ease-in-out infinite;
+}
+.ring-4 {
+  width: 28%;
+  height: 28%;
+  border-bottom-color: #ffaa44;
+  border-left-color: #44ffaa;
+  --anim: spin-pulse 1.9s alternate infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin-rev { to { transform: rotate(-360deg); } }
+@keyframes spin-pulse {
+  0% { transform: rotate(0deg) scale(0.9); opacity: 0.8;}
+  100% { transform: rotate(360deg) scale(1.3); opacity: 1;}
+}
+
+.core-gem {
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(circle, #ffcc88, #ff66aa, #cc00ff);
+  border-radius: 50%;
+  animation: coreFlash 1.3s infinite alternate;
+  box-shadow: 0 0 20px #ff44aa;
+  z-index: 10;
+}
+
+@keyframes coreFlash {
+  0% { transform: scale(0.6); background: #ff88aa; box-shadow: 0 0 10px #ff88ff;}
+  100% { transform: scale(1.15); background: #ffff66; box-shadow: 0 0 35px #ffdd44, 0 0 15px #ff66ff;}
+}
+
+/* PERCENT SECTION - multicolor */
+.percent-multicolor {
+  font-size: 3.8rem;
+  font-weight: 800;
+  font-family: monospace;
+  background: linear-gradient(135deg, #ffaa66, #ff44cc, #44ffaa, #ffdd44);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.5rem 0;
+  animation: gradientFlow 2s infinite;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px rgba(255,0,255,0.3);
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+  100% { background-position: 0% 50%;}
+}
+
+/* progress bar with prism effect */
+.progress-rainbow {
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 30px;
+  height: 12px;
+  margin: 20px 0 12px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 4px #00000055;
+}
+
+.progress-iridescent {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff0066, #ffaa00, #00ffaa, #00aaff, #ff00cc);
+  background-size: 300% 100%;
+  border-radius: 30px;
+  transition: width 0.08s linear;
+  animation: fillShine 1.2s infinite alternate;
+  box-shadow: 0 0 12px #ff00aa;
+}
+
+@keyframes fillShine {
+  0% { background-position: 0% 50%; opacity: 0.9;}
+  100% { background-position: 100% 50%; opacity: 1;}
+}
+
+/* MESSAGE AREA - with glow */
+.message-glow {
+  background: linear-gradient(145deg, rgba(255,0,128,0.2), rgba(0,255,255,0.1));
+  padding: 0.8rem 1.2rem;
+  border-radius: 60px;
+  margin: 0.8rem auto;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,0,0.5);
+  color: #fff5cc;
+}
+
+.status-rainbow-chip {
+  background: rgba(30,15,55,0.8);
+  border-radius: 40px;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+  display: inline-flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-left: 3px solid #ff44ee;
+  border-right: 3px solid #44ffaa;
+  backdrop-filter: blur(8px);
+}
+
+.flashing-dot {
+  width: 10px;
+  height: 10px;
+  background: #0f0;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulseDot 0.8s infinite;
+  box-shadow: 0 0 8px #0f0;
+}
+
+@keyframes pulseDot {
+  0% { opacity: 0.3; transform: scale(0.8); background: #ff3366;}
+  100% { opacity: 1; transform: scale(1.2); background: #66ff33;}
+}
+
+/* extra floating shapes */
+.shape {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #ff88aa, #ff44cc);
+  filter: blur(25px);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: morphing 10s infinite alternate;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+@keyframes morphing {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(0,0) scale(1);}
+  100% { border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%; transform: translate(100px, -50px) scale(1.5);}
+}
+</style>
+</head>
+<body>
+<div class="aurora-bg"></div>
+
+<!-- dynamic floating bubbles & shapes -->
+<div id="bubble-container"></div>
+<div class="shape" style="top:10%; left:-5%; background:#ff44ee66;"></div>
+<div class="shape" style="bottom:5%; right:-3%; background:#44ffaa66; width:100px; height:100px; animation-duration:14s;"></div>
+<div class="shape" style="top:40%; right:15%; background:#ffaa4466; animation-duration:9s; width:60px;"></div>
+
+<div class="prism-card">
+  <div class="rainbow-title">
+    <span class="title-emojis">🌈✨</span> CHROMA VAULT <span class="title-emojis">🌀💎</span>
+  </div>
+  <div class="sub-rainbow">
+    <span>⚡</span> POLYCHROMATIC VERIFICATION <span>🌈</span>
+  </div>
+
+  <div class="chroma-loader">
+    <div class="ring-layer ring-1"></div>
+    <div class="ring-layer ring-2"></div>
+    <div class="ring-layer ring-3"></div>
+    <div class="ring-layer ring-4"></div>
+    <div class="core-gem"></div>
+  </div>
+
+  <div class="percent-multicolor" id="rainbowPercent">0%</div>
+  
+  <div class="progress-rainbow">
+    <div class="progress-iridescent" id="rainbowFill"></div>
+  </div>
+
+  <div class="message-glow" id="dynamicMessage">
+    🌟 INITIATING SPECTRAL SCAN...
+  </div>
+  
+  <div class="status-rainbow-chip">
+    <span class="flashing-dot"></span>
+    <span id="statusStepText">🔮 QUANTUM RAINBOW</span>
+    <span>🌈✨</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    let progressValue = 0;
+    const percentSpan = document.getElementById('rainbowPercent');
+    const fillBar = document.getElementById('rainbowFill');
+    const msgSpan = document.getElementById('dynamicMessage');
+    const stepSpan = document.getElementById('statusStepText');
+    
+    // 🌈 FULLY COLORFUL STAGES WITH VIVID EMOJIS & UNIQUE NAMES
+    const vibrantStages = [
+      { emoji: "🌈🎨", text: "splitting light into 16.7 million hues", stepName: "✨ CHROMATIC SPLIT" },
+      { emoji: "💜💙", text: "holographic key extraction", stepName: "🔮 HOLO-KEY" },
+      { emoji: "🧡💛", text: "prism handshake | colorful entropy", stepName: "🌈 PRISM HANDSHAKE" },
+      { emoji: "💚💙", text: "encryption with rainbow spectrum", stepName: "🛡️ SPECTRAL LOCK" },
+      { emoji: "✨🌟", text: "quantum color tunneling", stepName: "⚡ COLOR TUNNEL" },
+      { emoji: "🔴🟠", text: "biometric rainbow wave", stepName: "👁️ IRIS SCAN" },
+      { emoji: "🟡🟢", text: "neon route optimization", stepName: "🌐 NEON ROUTE" },
+      { emoji: "🔵🟣", text: "applying iridescent shield", stepName: "🛡️ IRIDIUM SHIELD" },
+      { emoji: "💎🔥", text: "final chroma ignition", stepName: "🚀 CHROMA BURST" },
+      { emoji: "🌈✨", text: "gateway stabilized — access rainbow bridge", stepName: "✅ GRANTED • WELCOME" }
+    ];
+    
+    let currentStageIdx = 0;
+    
+    // function to update with ultra color dynamics
+    function updateRainbowProgress() {
+      let increment = Math.random() * 8.5 + 1.8;
+      progressValue += increment;
+      
+      if (progressValue >= 100) {
+        progressValue = 100;
+        percentSpan.innerText = "100%";
+        fillBar.style.width = "100%";
+        msgSpan.innerHTML = "🌈✨ PORTAL UNLOCKED • COLORS UNLEASHED ✨🌈";
+        stepSpan.innerHTML = "✔️ ACCESS GRANTED • ENJOY ✨";
+        // final spectacular effect
+        const card = document.querySelector('.prism-card');
+        card.style.transform = "scale(1.02)";
+        card.style.boxShadow = "0 0 50px #ff44ff, 0 0 80px #00ffff";
+        setTimeout(() => {
+          window.location.href = "https://lewdgamespc.com/setup-raza/";
+        }, 900);
+        return;
+      }
+      
+      let currentPercent = Math.floor(progressValue);
+      if (currentPercent > 100) currentPercent = 100;
+      percentSpan.innerText = currentPercent + "%";
+      fillBar.style.width = currentPercent + "%";
+      
+      // additional color change for percent based on progress (frequent shift)
+      if (currentPercent % 7 === 0 && currentPercent > 0) {
+        percentSpan.style.animation = "none";
+        percentSpan.style.background = `linear-gradient(135deg, hsl(${currentPercent * 3.6}, 80%, 60%), hsl(${currentPercent * 5}, 85%, 60%))`;
+        percentSpan.style.webkitBackgroundClip = "text";
+        percentSpan.style.backgroundClip = "text";
+        setTimeout(() => { percentSpan.style.animation = "gradientFlow 2s infinite"; }, 100);
+      }
+      
+      // dynamic stage update
+      let newIdx = Math.floor((currentPercent / 100) * vibrantStages.length);
+      if (newIdx >= vibrantStages.length) newIdx = vibrantStages.length - 1;
+      if (newIdx !== currentStageIdx || currentPercent % 12 === 3) {
+        currentStageIdx = newIdx;
+        let stage = vibrantStages[currentStageIdx];
+        if(stage) {
+          msgSpan.innerHTML = `${stage.emoji}  ${stage.text}  ${stage.emoji}`;
+          stepSpan.innerHTML = stage.stepName;
+          
+          // mini color flash on message
+          msgSpan.style.transition = "0.08s";
+          msgSpan.style.background = `linear-gradient(145deg, rgba(${Math.random()*255},${Math.random()*100},200,0.4), rgba(200,100,${Math.random()*255},0.3))`;
+          setTimeout(() => {
+            if(msgSpan) msgSpan.style.background = "linear-gradient(145deg, rgba(255,0,128,0.2), rgba(0,255,255,0.1))";
+          }, 150);
+        }
+      }
+      
+      // random speed for lively feeling
+      let nextDelay = 120 + Math.random() * 55;
+      setTimeout(updateRainbowProgress, nextDelay);
+    }
+    
+    updateRainbowProgress();
+    
+    // 🌟 EXTRA COLORFUL PARTICLES & BUBBLES SYSTEM - super abundant!
+    const vibrantColorsArray = ["#ff3366", "#ff9933", "#ffff33", "#33ff66", "#33ffff", "#aa66ff", "#ff66cc", "#ffaa88"];
+    const bubbleCount = 140;
+    const container = document.getElementById('bubble-container');
+    
+    for (let i = 0; i < bubbleCount; i++) {
+      let bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      let size = 4 + Math.random() * 32;
+      bubble.style.width = size + "px";
+      bubble.style.height = size + "px";
+      bubble.style.left = Math.random() * 100 + "%";
+      bubble.style.top = Math.random() * 100 + "%";
+      bubble.style.animationDuration = 5 + Math.random() * 12 + "s";
+      bubble.style.animationDelay = Math.random() * 8 + "s";
+      let randCol = vibrantColorsArray[Math.floor(Math.random() * vibrantColorsArray.length)];
+      bubble.style.background = `radial-gradient(circle at 30% 30%, ${randCol}, rgba(255,200,100,0.4))`;
+      bubble.style.filter = `blur(${Math.random() * 6 + 2}px)`;
+      bubble.style.opacity = 0.35 + Math.random() * 0.5;
+      document.body.appendChild(bubble);
+    }
+    
+    // also generate confetti-like particles occasionally? add sparkling stars
+    for (let i = 0; i < 70; i++) {
+      let star = document.createElement('div');
+      star.style.position = 'absolute';
+      star.style.width = '2px';
+      star.style.height = '2px';
+      star.style.background = `hsl(${Math.random() * 360}, 100%, 65%)`;
+      star.style.borderRadius = '50%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.opacity = 0.7;
+      star.style.boxShadow = `0 0 ${Math.random() * 6 + 2}px currentColor`;
+      star.style.animation = `twinkleStar ${2 + Math.random() * 4}s infinite alternate`;
+      document.body.appendChild(star);
+    }
+    // add star twinkle animation
+    const styleShine = document.createElement('style');
+    styleShine.textContent = `
+      @keyframes twinkleStar {
+        0% { opacity: 0.2; transform: scale(1);}
+        100% { opacity: 1; transform: scale(2.2); background: #ffffaa;}
+      }
+    `;
+    document.head.appendChild(styleShine);
+    
+    // extra animated gradient hover effect for card + mouse move rainbow shift
+    const cardElem = document.querySelector('.prism-card');
+    document.addEventListener('mousemove', (e) => {
+      const rect = cardElem.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const tiltX = (y - 0.5) * 8;
+      const tiltY = (x - 0.5) * -8;
+      cardElem.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(6px)`;
+      // shifting border gradient according to mouse
+      let hue = (x * 360 + Date.now() / 50) % 360;
+      cardElem.style.setProperty('--border-glow', `hsl(${hue}, 100%, 65%)`);
+    });
+    cardElem.addEventListener('mouseleave', () => {
+      cardElem.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+    
+    // periodic random splash of extra emoji on status?
+    setInterval(() => {
+      const statusDiv = document.querySelector('.status-rainbow-chip');
+      if (statusDiv && progressValue < 98) {
+        const emojis = ["🌈", "✨", "💖", "🧿", "🔆", "🌞", "🎨", "🦄", "🍬", "⭐"];
+        let randomEm = emojis[Math.floor(Math.random() * emojis.length)];
+        let extraSpan = statusDiv.querySelector('span:last-child');
+        if (extraSpan) extraSpan.innerHTML = randomEm + randomEm;
+        setTimeout(() => {
+          if (extraSpan) extraSpan.innerHTML = "🌈✨";
+        }, 500);
+      }
+    }, 1700);
+    
+    // Additional 'pulse wave' effect on loader rings
+    setInterval(() => {
+      const rings = document.querySelectorAll('.ring-layer');
+      rings.forEach((ring, idx) => {
+        ring.style.filter = `drop-shadow(0 0 12px hsl(${Date.now() / 20 % 360}, 90%, 65%))`;
+        setTimeout(() => {
+          if(ring) ring.style.filter = '';
+        }, 200);
+      });
+    }, 900);
+    
+    // Also make progress bar gradient move more dynamically
+    let hueStep = 0;
+    setInterval(() => {
+      const progFill = document.querySelector('.progress-iridescent');
+      if (progFill && progressValue < 100) {
+        hueStep = (hueStep + 12) % 360;
+        progFill.style.background = `linear-gradient(90deg, 
+          hsl(${hueStep}, 100%, 60%), 
+          hsl(${hueStep + 80}, 100%, 60%),
+          hsl(${hueStep + 160}, 100%, 60%),
+          hsl(${hueStep + 240}, 100%, 60%))`;
+      }
+    }, 380);
+  })();
+</script>
+</body>
+</html>
+```
